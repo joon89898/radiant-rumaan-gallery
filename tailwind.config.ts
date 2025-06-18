@@ -168,6 +168,14 @@ export default {
 					'50%': {
 						opacity: '0.8'
 					}
+				},
+				'marquee': {
+					'0%': {
+						transform: 'translate3d(0, 0, 0)'
+					},
+					'100%': {
+						transform: 'translate3d(-50%, 0, 0)'
+					}
 				}
 			},
 			animation: {
@@ -179,7 +187,8 @@ export default {
 				'slide-in-right': 'slide-in-right 0.8s ease-out',
 				'slide-in-up': 'slide-in-up 0.8s ease-out',
 				'float': 'float 3s ease-in-out infinite',
-				'pulse-slow': 'pulse-slow 3s ease-in-out infinite'
+				'pulse-slow': 'pulse-slow 3s ease-in-out infinite',
+				'marquee': 'marquee 20s linear infinite'
 			}
 		}
 	},

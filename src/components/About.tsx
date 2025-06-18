@@ -61,17 +61,31 @@ const About = () => {
                 <h3 className="text-2xl font-display font-semibold text-black mb-6">
                   Skills & Tools
                 </h3>
-                <div className="grid grid-cols-1 gap-4">
-                  {skills.map((skill, index) => (
-                    <div
-                      key={skill.name}
-                      className="bg-gradient-to-r from-yellow-100 to-yellow-200 px-6 py-4 rounded-lg flex items-center gap-4 font-semibold text-gray-900 hover:from-yellow-200 hover:to-yellow-300 transition-all duration-200 transform hover:scale-105 cursor-default animate-fade-in-up border border-yellow-300"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <span className="text-2xl">{skill.icon}</span>
-                      <span className="text-lg font-bold text-black">{skill.name}</span>
-                    </div>
-                  ))}
+                
+                {/* Marquee Container */}
+                <div className="overflow-hidden relative bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-xl p-4 border-2 border-yellow-200">
+                  <div className="flex animate-marquee whitespace-nowrap">
+                    {/* First set of skills */}
+                    {skills.map((skill, index) => (
+                      <div
+                        key={`first-${skill.name}`}
+                        className="inline-flex items-center gap-3 bg-gradient-to-r from-yellow-400 to-yellow-500 px-6 py-3 rounded-full mx-2 font-bold text-black shadow-lg hover:scale-105 transition-transform duration-200"
+                      >
+                        <span className="text-xl">{skill.icon}</span>
+                        <span className="text-sm font-bold whitespace-nowrap">{skill.name}</span>
+                      </div>
+                    ))}
+                    {/* Duplicate set for seamless loop */}
+                    {skills.map((skill, index) => (
+                      <div
+                        key={`second-${skill.name}`}
+                        className="inline-flex items-center gap-3 bg-gradient-to-r from-yellow-400 to-yellow-500 px-6 py-3 rounded-full mx-2 font-bold text-black shadow-lg hover:scale-105 transition-transform duration-200"
+                      >
+                        <span className="text-xl">{skill.icon}</span>
+                        <span className="text-sm font-bold whitespace-nowrap">{skill.name}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 
                 <div className="mt-8 p-6 bg-gradient-to-r from-yellow-400 to-yellow-500 rounded-xl text-center animate-pulse-slow">
