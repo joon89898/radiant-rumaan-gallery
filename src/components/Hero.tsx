@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { Download } from 'lucide-react';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -8,6 +9,13 @@ const Hero = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleDownloadCV = () => {
+    // In a real scenario, this would download the actual CV file
+    console.log('Downloading CV...');
+    // You can replace this with actual CV download logic
+    // window.open('/path-to-cv.pdf', '_blank');
   };
 
   return (
@@ -24,7 +32,7 @@ const Hero = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           {/* Left side - Content */}
           <div className="flex-1 text-center lg:text-left">
-            <div className="animate-fade-in">
+            <div className="animate-fade-in-up">
               <h1 className="text-5xl lg:text-7xl font-display font-bold text-black mb-6 leading-tight">
                 Designs That{' '}
                 <span className="gradient-text">Speak Loud</span>
@@ -41,28 +49,36 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <Button
                   onClick={() => scrollToSection('portfolio')}
-                  className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-4 rounded-full text-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
+                  className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-8 py-4 rounded-full text-lg transition-all duration-200 transform hover:scale-105 shadow-lg animate-slide-in-left"
                 >
                   View My Work
                 </Button>
                 <Button
                   onClick={() => scrollToSection('contact')}
                   variant="outline"
-                  className="border-2 border-black text-black hover:bg-black hover:text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-200 transform hover:scale-105"
+                  className="border-2 border-black text-black hover:bg-black hover:text-white font-semibold px-8 py-4 rounded-full text-lg transition-all duration-200 transform hover:scale-105 animate-slide-in-right"
                 >
                   Let's Connect
+                </Button>
+                <Button
+                  onClick={handleDownloadCV}
+                  variant="outline"
+                  className="border-2 border-yellow-400 text-yellow-600 hover:bg-yellow-400 hover:text-black font-semibold px-8 py-4 rounded-full text-lg transition-all duration-200 transform hover:scale-105 animate-slide-in-up"
+                >
+                  <Download className="w-5 h-5 mr-2" />
+                  Download CV
                 </Button>
               </div>
             </div>
           </div>
 
           {/* Right side - Image */}
-          <div className="flex-1 relative animate-slide-in-left">
+          <div className="flex-1 relative animate-slide-in-right">
             <div className="relative w-full max-w-lg mx-auto">
               <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-3xl transform rotate-6 opacity-20"></div>
               <div className="relative bg-white rounded-3xl p-2 shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-500">
                 <img
-                  src="https://images.unsplash.com/photo-1494790108755-2616c96c3e8b?auto=format&fit=crop&w=500&q=80"
+                  src="/lovable-uploads/c5a0178d-845c-4358-9da8-a0752ec38366.png"
                   alt="Rumaan Meeran - Graphic Designer"
                   className="w-full h-96 object-cover rounded-2xl"
                 />
